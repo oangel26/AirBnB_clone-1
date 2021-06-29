@@ -111,7 +111,8 @@ class HBNBCommand(cmd.Cmd):
                 clasess = key.split(".")
                 if clasess[0] == line:
                     list.append(str(value))
-            print(list)
+            if len(list) > 0:
+                print(list)
 
     def do_update(self, line):
         """Updates an instance based on the class name and
