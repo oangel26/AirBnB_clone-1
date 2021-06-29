@@ -120,7 +120,7 @@ class HBNBCommand(cmd.Cmd):
         (save the change into the JSON file)"""
         tokenize = line.split(" ")
         new_dict = storage.all()
-        if len(tokenize) == 0:
+        if len(line) == 0:
             print("** class name missing **")
         elif tokenize[0] not in HBNBCommand.existing_class:
             print("** class doesn't exist **")
