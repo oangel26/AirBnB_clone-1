@@ -6,9 +6,10 @@ from models.city import City
 from models.user import User
 from models.amenity import Amenity
 
+
 class Place(BaseModel):
     """ Class which describes data type of Place """
-    city_id =""
+    city_id = ""
     user_id = ""
     name = ""
     description = ""

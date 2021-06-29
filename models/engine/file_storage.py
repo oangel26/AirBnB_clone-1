@@ -8,6 +8,7 @@ from models.place import Place
 from models.review import Review
 from models.state import State
 
+
 class FileStorage:
     """ File storage class that serialze instances to a JSON file and
     and deserializes JSON file to instances.
@@ -21,7 +22,7 @@ class FileStorage:
 
     def new(self, obj):
         """ Method that sets in __objects the obj with key """
-        id_key = obj.__class__.__name__+"."+ obj.id
+        id_key = obj.__class__.__name__ + "." + obj.id
         FileStorage.__objects.update({id_key: obj})
 
     def save(self):

@@ -3,19 +3,21 @@ import uuid
 from datetime import datetime
 import models
 
+
 class BaseModel:
     """create the BaseModel"""
 
     def __init__(self, *args, **kwargs):
         """ Constructor of BaseModel wich initialices attribute values """
+        date_format = "%Y-%m-%dT%H:%M:%S.%f"
         if len(kwargs) > 0:
             for key, value in kwargs.items():
                 if key == 'created_at':
-                    self.created_at = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                    self.created_at = datetime.strptime(value, date_format)
                 elif key == 'id':
                     self.id = value
                 elif key == 'updated_at':
-                    self.updated_at = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                    self.updated_at = datetime.strptime(value, date_format)
                 elif key != '__class__':
                     setattr(self, key, value)
         else:
@@ -24,10 +26,10 @@ class BaseModel:
             self.updated_at = datetime.now()
             models.storage.new(self)
 
-
     def __str__(self):
-        """ Sepcial emthod wich returns in a string class, id, and object inf"""
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        """Sepcial emthod wich returns in a string class, id, and object inf"""
+        str_f = "[{}] ({}) {}"
+        return str_f.format(self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
         """ updates the public instance attribute with the current datetime """
