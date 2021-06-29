@@ -15,19 +15,8 @@ class BaseModel:
                     self.id = value
                 elif key == 'updated_at':
                     self.updated_at = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
-                """
-                elif key == 'name':
-                    self.name = value
-                elif key == 'my_number':
-                    self.my_number = value
-                elif key == 'email':
-                    self.email = value
-                elif key == 'first_name':
-                    self.first_name = value
-                else:
-                    attribute = key
-                    attribute2 = "self." + attribute
-                    eval(attribute2 = value)"""
+                elif key != '__class__':
+                    setattr(self, key, value)
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
