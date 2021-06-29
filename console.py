@@ -84,7 +84,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif tokenize[0] not in HBNBCommand.existing_class:
             print("** class doesn't exist **")
-        elif tokenize[1] is None:
+        elif len(tokenize) == 1:
             print("** instance id missing **")
         else:
             link = tokenize[0] + "." + tokenize[1]
