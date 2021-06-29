@@ -127,10 +127,10 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
         elif len(tokenize) == 2:
             print("** attribute name missing **")
-        elif tokenize[0] + "." + tokenize[1] not in new_dict.keys():
-            print("** no instance found **")
         elif len(tokenize) == 3:
             print("** value missing **")
+        elif tokenize[0] + "." + tokenize[1] not in new_dict.keys():
+            print("** no instance found **")
         else:
             for key, value in new_dict.items():
                 if (tokenize[0] + "." + tokenize[1]) == key:
