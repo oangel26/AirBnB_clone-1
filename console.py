@@ -4,7 +4,6 @@ to storage engine
 """
 
 import cmd
-from typing import List
 from models.base_model import BaseModel
 from models import storage
 from models.engine.file_storage import FileStorage
