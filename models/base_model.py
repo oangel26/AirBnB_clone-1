@@ -1,14 +1,15 @@
 #!/usr/bin/python3
+"""Module that """
+
 import uuid
 from datetime import datetime
-import models
-
 
 class BaseModel:
     """create the BaseModel"""
 
     def __init__(self, *args, **kwargs):
         """ Constructor of BaseModel wich initialices attribute values """
+        from models import storage
         date_format = "%Y-%m-%dT%H:%M:%S.%f"
         if len(kwargs) > 0:
             for key, value in kwargs.items():
@@ -24,7 +25,7 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            models.storage.new(self)
+            storage.new(self)
 
     def __str__(self):
         """Sepcial emthod wich returns in a string class, id, and object inf"""
@@ -33,8 +34,9 @@ class BaseModel:
 
     def save(self):
         """ updates the public instance attribute with the current datetime """
+        from models import storage
         self.updated_at = datetime.now()
-        models.storage.save()
+        storage.save()
 
     def to_dict(self):
         """ returns a dictionary containing all keys/values of the instance """

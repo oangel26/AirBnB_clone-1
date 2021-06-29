@@ -1,13 +1,7 @@
 #!/usr/bin/python3
-import json
-from models.base_model import BaseModel
-from models.user import User
-from models.amenity import Amenity
-from models.city import City
-from models.place import Place
-from models.review import Review
-from models.state import State
+"""Module File_storage"""
 
+import json
 
 class FileStorage:
     """ File storage class that serialze instances to a JSON file and
@@ -28,7 +22,7 @@ class FileStorage:
     def save(self):
         """ Public method that serializes __objects to the JSON file """
         new_dict = {}
-        for key, value in FileStorage.__objects.items():
+        for key, value in self.all().items():
             new_dict[key] = value.to_dict().copy()
         with open(FileStorage.__file_path, mode="w", encoding="UTF-8") as file:
             json.dump(new_dict, file)
@@ -37,6 +31,13 @@ class FileStorage:
         """Deserializes the JSON file to __objects
         only if the JSON file exists; otherwise, do nothing
         """
+        from models.base_model import BaseModel
+        from models.user import User
+        from models.amenity import Amenity
+        from models.city import City
+        from models.place import Place
+        from models.review import Review
+        from models.state import State
         new_dict = {}
         try:
             with open(FileStorage.__file_path, "r", encoding="UTF-8") as file:
@@ -44,6 +45,6 @@ class FileStorage:
                 for key, value in new_dict.items():
                     class_name = value.get('__class__')
                     obj = eval(class_name + '(**value)')
-                    FileStorage.__objects[key] = obj
+                    self.all()[key] = obj
         except:
             pass
