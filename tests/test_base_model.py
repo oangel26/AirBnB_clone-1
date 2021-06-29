@@ -3,6 +3,5 @@
 """
 import unittest
 
-
 class TestBaseModel_save(unittest.TestCase):
-    pass
+    """test-basemodel"""
