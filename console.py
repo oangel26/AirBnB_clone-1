@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""Console to manage the server side
+to storage engine
+"""
+
 import cmd
 from typing import List
 from models.base_model import BaseModel
@@ -11,12 +15,15 @@ from models.place import Place
 from models.review import Review
 from models.state import State
 
+
 class HBNBCommand(cmd.Cmd):
     """Simple command processor example."""
 
-    existing_class = {"BaseModel": BaseModel, "User": User,
-    "Amenity": Amenity, "City": City, "Place": Place,
-    "Review": Review, "State": State}
+    existing_class = {
+                        "BaseModel": BaseModel, "User": User,
+                        "Amenity": Amenity, "City": City, "Place": Place,
+                        "Review": Review, "State": State
+                    }
 
     # Do not show a prompt after each command read
     prompt = "(hbnb) "
@@ -32,28 +39,33 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def emptyline(self):
+        """Funtion that clear the line command"""
         pass
 
     def do_create(self, line):
+        """Creates a new instance of BaseModel,
+        saves it (to the JSON file) and prints the id"""
         if len(line) == 0:
-            print ("** class name missing **")
+            print("** class name missing **")
         elif line not in HBNBCommand.existing_class:
-            print ("** class doesn't exist **")
+            print("** class doesn't exist **")
         else:
             new_instance = HBNBCommand.existing_class[line]()
             new_instance.save()
-            print (new_instance.id)
+            print(new_instance.id)
 
     def do_show(self, line):
+        """Prints the string representation of
+        an instance based on the class name and id"""
         new_dict = storage.all()
         tokenize = line.split(" ")
         count = 0
         if len(line) == 0:
-            print ("** class name missing **")
+            print("** class name missing **")
         elif tokenize[0] not in HBNBCommand.existing_class:
-            print ("** class doesn't exist **")
+            print("** class doesn't exist **")
         elif tokenize[1] is None:
-            print ("** instance id missing **")
+            print("** instance id missing **")
         else:
             for key, value in new_dict.items():
                 ids = key.split(".")
@@ -61,18 +73,20 @@ class HBNBCommand(cmd.Cmd):
                     print(value)
                     count = 1
             if count == 0:
-                print ("** no instance found **")
+                print("** no instance found **")
 
     def do_destroy(self, line):
+        """Deletes an instance based on the class name and id
+        (save the change into the JSON file)."""
         new_dict = storage.all()
         tokenize = line.split(" ")
         count = 0
         if len(line) == 0:
-            print ("** class name missing **")
+            print("** class name missing **")
         elif tokenize[0] not in HBNBCommand.existing_class:
-            print ("** class doesn't exist **")
+            print("** class doesn't exist **")
         elif tokenize[1] is None:
-            print ("** instance id missing **")
+            print("** instance id missing **")
         else:
             link = tokenize[0] + "." + tokenize[1]
             if link in new_dict.keys():
@@ -80,9 +94,11 @@ class HBNBCommand(cmd.Cmd):
                 storage.save()
                 count = 1
             if count == 0:
-                print ("** no instance found **")
+                print("** no instance found **")
 
     def do_all(self, line):
+        """Prints all string representation of all
+        instances based or not on the class name"""
         new_dict = storage.all()
         list = []
         if len(line) == 0:
@@ -99,6 +115,9 @@ class HBNBCommand(cmd.Cmd):
             print(list)
 
     def do_update(self, line):
+        """Updates an instance based on the class name and
+        id by adding or updating attribute
+        (save the change into the JSON file)"""
         tokenize = line.split(" ")
         new_dict = storage.all()
         if len(tokenize) == 0:
@@ -117,7 +136,6 @@ class HBNBCommand(cmd.Cmd):
             for key, value in new_dict.items():
                 if (tokenize[0] + "." + tokenize[1]) == key:
                     setattr(value, tokenize[2], tokenize[3])
-
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
