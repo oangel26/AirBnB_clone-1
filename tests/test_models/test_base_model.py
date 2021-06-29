@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-"""Unittest for max_integer([..])
-"""
-import unittest
 
-class TestBaseModel_save(unittest.TestCase):
-    """test-basemodel"""
+import unittest
+from models.base_model import BaseModel
+
+class TestBaseModel(unittest, TestCase):
+
+    def test_base_model(self):
+        self.assertTrue(True)
