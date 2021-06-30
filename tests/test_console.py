@@ -6,7 +6,7 @@ import unittest
 from models.engine.file_storage import FileStorage
 
 
-class TestFileStorage(unittest.TestCase):
+class Testconsole(unittest,TestCase):
     """test class Amenity"""
 
     def setUp(self):

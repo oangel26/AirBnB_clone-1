@@ -10,9 +10,11 @@ class TestPlace(unittest.TestCase):
     """Test Place"""
 
     def setUp(self):
+        """create a instance"""
         self.new_place = Place()
 
     def test_place(self):
+        """check the type attributes"""
         self.assertEqual(type(self.new_place.name), str)
         self.assertEqual(type(self.new_place.number_bathrooms), int)
         self.assertEqual(type(self.new_place.price_by_night), int)

@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Test Module that contain the test of class amenity"""
+
 
 from datetime import datetime
 import unittest
@@ -6,11 +8,14 @@ from models.base_model import BaseModel
 
 
 class TestBaseModel(unittest.TestCase):
+    """test class Amenity"""
 
     def setUp(self):
+        """create a instance"""
         self.my_model = BaseModel()
 
     def test_base_model(self):
+        """check the type attributes"""
         self.my_model.name = ""
         self.my_model.my_number = 89
         self.assertIsInstance(self.my_model, BaseModel)

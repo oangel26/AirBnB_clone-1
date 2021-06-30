@@ -9,9 +9,11 @@ class TestUser(unittest.TestCase):
     """Test class User"""
 
     def setUp(self):
+        """create a instance"""
         self.new_user = User()
 
     def test_user(self):
+        """check the type attributes"""
         self.assertEqual(type(self.new_user.email), str)
         self.assertEqual(type(self.new_user.first_name), str)
         self.assertEqual(type(self.new_user.password), str)

@@ -9,7 +9,9 @@ class TestState(unittest.TestCase):
     """Test class state"""
 
     def setUp(self):
+        """create a instance"""
         self.new_state = State()
 
     def test_state(self):
+        """check the type attributes"""
         self.assertEqual(type(self.new_state.name), str)
