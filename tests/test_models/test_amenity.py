@@ -4,5 +4,6 @@ import unittest
 from models.amenity import Amenity
 
 
-class TestAmenity(unittest, TestCase):
+class TestAmenity(unittest.TestCase):
     """ hola """
+    pass
