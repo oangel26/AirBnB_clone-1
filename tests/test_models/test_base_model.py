@@ -7,15 +7,13 @@ import unittest
 from models.base_model import BaseModel
 
 
-class TestBaseModel(unittest.TestCase):
+class TestBaseModel(unittest, TestCase):
     """test class Amenity"""
-
+"""
     def setUp(self):
-        """create a instance"""
         self.my_model = BaseModel()
 
     def test_base_model(self):
-        """check the type attributes"""
         self.my_model.name = ""
         self.my_model.my_number = 89
         self.assertIsInstance(self.my_model, BaseModel)
@@ -25,7 +23,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(self.my_model.my_number, 89)
         self.assertEqual(type(self.my_model.id), str)
         self.assertEqual(type(self.my_model.created_at), datetime)
-        self.assertEqual(type(self.my_model.updated_at), datetime)
+        self.assertEqual(type(self.my_model.updated_at), datetime)"""
 """
     def test_base_model_kwargs(self):
         attributes = {'id': "565741c1-f2f9-4bd4-8b66-b73ffe1e3d45",
