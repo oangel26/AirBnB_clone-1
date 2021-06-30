@@ -13,6 +13,9 @@ class TestAmenity(unittest.TestCase):
         """create a instance"""
         self.new_amenity = Amenity()
 
+    def tearDown(self):
+        self.new_amenity = None
+
     def test_amenity(self):
         """check the type attributes"""
         self.assertIsInstance(self.new_amenity, Amenity)
