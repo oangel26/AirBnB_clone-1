@@ -45,9 +45,9 @@ class HBNBCommand(cmd.Cmd):
         """Creates a new instance of BaseModel,
         saves it (to the JSON file) and prints the id"""
         if len(line) == 0:
-            print ("** class name missing **")
+            print("** class name missing **")
         elif line not in HBNBCommand.existing_class:
-            print ("** class doesn't exist **")
+            print("** class doesn't exist **")
         else:
             new_instance = HBNBCommand.existing_class[line]()
             new_instance.save()
@@ -121,17 +121,17 @@ class HBNBCommand(cmd.Cmd):
         tokenize = line.split(" ")
         new_dict = storage.all()
         if len(line) == 0:
-            print ("** class name missing **")
+            print("** class name missing **")
         elif tokenize[0] not in HBNBCommand.existing_class:
-            print ("** class doesn't exist **")
+            print("** class doesn't exist **")
         elif len(tokenize) == 1:
-            print ("** instance id missing **")
-        elif len(tokenize) == 2 :
-            print ("** attribute name missing **")
+            print("** instance id missing **")
+        elif len(tokenize) == 2:
+            print("** attribute name missing **")
         elif len(tokenize) == 3:
-            print ("** value missing **")
+            print("** value missing **")
         elif tokenize[0] + "." + tokenize[1] not in new_dict.keys():
-            print ("** no instance found **")
+            print("** no instance found **")
         else:
             for key, value in new_dict.items():
                 if (tokenize[0] + "." + tokenize[1]) == key:
