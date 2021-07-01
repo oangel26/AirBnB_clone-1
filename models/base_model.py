@@ -16,8 +16,6 @@ class BaseModel:
             for key, value in kwargs.items():
                 if key == 'created_at':
                     self.created_at = datetime.strptime(value, date_format)
-                elif key == 'id':
-                    self.id = value
                 elif key == 'updated_at':
                     self.updated_at = datetime.strptime(value, date_format)
                 elif key != '__class__':
