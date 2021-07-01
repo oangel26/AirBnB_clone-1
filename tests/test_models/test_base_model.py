@@ -15,6 +15,7 @@ class TestBaseModel(unittest.TestCase):
         self.my_model = BaseModel()
 
     def tearDown(self):
+        """ainici"""
         self.my_model = None
 
     def test_base_model(self):
@@ -58,3 +59,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertNotEqual(base_model2.id, base_model3.id)
         self.assertEqual(type(base_model1.id), type(base_model2.id))
         self.assertNotIn("name", base_model1.__dict__)
+
+if __name__ == "__main__":
+    unittest.main()
