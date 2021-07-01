@@ -6,10 +6,11 @@ By Guillaume, CTO at Holberton School
 Authors: [Carlos Andres Polania](https://twitter.com/timberdev),
 [Oscar Angel](https://twitter.com/eloskyA)
 
+![img](https://www.tabbykatz.com/hbnb.png)
+
 ## Learning Objectives
 
-
-How to create a Python package
+-   How to create a Python package
 -   How to create a command interpreter in Python using the  `cmd`  module
 -   What is Unit testing and how to implement it in a large project
 -   How to serialize and deserialize a Class
@@ -24,6 +25,7 @@ How to create a Python package
 
 
 ### How to start it?
+Is necesary to clone the repository for to use the console
 
     git clone https://github.com/capolaniaq/AirBnB_clone.git
     cd AirBnB/
@@ -31,6 +33,8 @@ How to create a Python package
 
 
 ### How to use interactive mode:
+This Programm works both, interactive and non-interactive mode. In interactive mode, similar to a Unix Shell but limited to some uses, it prints a promp and wait for the user to input something. In non-interactive mode you will need to run with a command input piped into its execution so that the command is run quickly.
+
 ### command usage
 - create `class name`
 - show  `class name` `id`
