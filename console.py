@@ -136,6 +136,7 @@ class HBNBCommand(cmd.Cmd):
             for key, value in new_dict.items():
                 if (tokenize[0] + "." + tokenize[1]) == key:
                     setattr(value, tokenize[2], tokenize[3])
+                    value.save()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
