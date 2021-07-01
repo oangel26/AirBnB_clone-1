@@ -134,13 +134,8 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
         else:
             for key, value in new_dict.items():
-                try:
-                    attribute_type = type(getattr(value, tokenize[2]))
-                    tokenize[3] = attribute_type(tokenize[3])
-                    if (tokenize[0] + "." + tokenize[1]) == key:
-                        setattr(value, tokenize[2], tokenize[3])
-                except ValueError:
-                    pass
+                if (tokenize[0] + "." + tokenize[1]) == key:
+                    setattr(value, tokenize[2], tokenize[3])
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
