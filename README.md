@@ -3,7 +3,7 @@ _Foundations > Higher-level programming > AirBnB clone_
 
 By Guillaume, CTO at Holberton School
 
-Authors: [Carlos Andres Polania](https://twitter.com/timberdev)
+Authors: [Carlos Andres Polania](https://twitter.com/timberdev),
 [Oscar Angel](https://twitter.com/eloskyA)
 
 ## Learning Objectives
@@ -31,7 +31,7 @@ How to create a Python package
 
 
 ### How to use interactive mode:
-#### command usage
+### command usage
 - create `class name`
 - show  `class name` `id`
 - destroy `class name` `id`
@@ -39,6 +39,7 @@ How to create a Python package
 - all `class name`
 - update `class name` `id` `attribute name` `attribute value`
 
+#### examples
 
     (hbnb) help
 
@@ -49,17 +50,38 @@ How to create a Python package
 	EOF help quit
 
 	(hbnb)
-
+	(hbnb)
 	(hbnb)
 
-	(hbnb) 
-
-### examples
+### Examples
 
     (hbnb) create BaseModel
     8800b9d6-c42b-432c-a1e0-be8397b03159
     (hbnb) show BaseModel 8800b9d6-c42b-432c-a1e0-be8397b03159
-    [BaseModel] (8800b9d6-c42b-432c-a1e0-be8397b03159) {'created_at': 		      datetime.datetime(2021, 7, 1, 2, 17, 43, 210804), 'updated_at': datetime.datetime(2021, 7, 1, 2, 17, 43, 210850), 'id': '8800b9d6-c42b-432c-a1e0-be8397b03159'}
+    [BaseModel] (8800b9d6-c42b-432c-a1e0-be8397b03159) {'created_at': datetime.datetime(2021, 7, 1, 2, 17, 43, 210804), 'updated_at': datetime.datetime(2021, 7, 1, 2, 17, 43, 210850), 'id': '8800b9d6-c42b-432c-a1e0-be8397b03159'}
     (hbnb) update BaseModel 8800b9d6-c42b-432c-a1e0-be8397b03159 name School
-    (hbnb) show BaseModel 8800b9d6-c42b-432c-a1e0-be8397b03159  
+    (hbnb) show BaseModel 8800b9d6-c42b-432c-a1e0-be8397b03159
     [BaseModel] (8800b9d6-c42b-432c-a1e0-be8397b03159) {'created_at': datetime.datetime(2021, 7, 1, 2, 17, 43, 210804), 'updated_at': datetime.datetime(2021, 7, 1, 2, 19, 6, 920983), 'id': '8800b9d6-c42b-432c-a1e0-be8397b03159'}
+
+
+### How to use non-interactive mode:
+
+	$ echo "help" | ./console.py
+	(hbnb)
+
+	Documented commands (type help <topic>):
+	========================================
+	EOF  help  quit
+	(hbnb)
+	$
+	$ cat test_help
+	help
+	$
+	$ cat test_help | ./console.py
+	(hbnb)
+
+	Documented commands (type help <topic>):
+	========================================
+	EOF  help  quit
+	(hbnb)
+	$
